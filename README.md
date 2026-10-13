@@ -1,36 +1,43 @@
-# Build Onchain Apps Workshop - Web3Chennai
+# Build Onchain Apps Workshop — Web3Chennai Token
 
-This repository contains the ERC20 token smart contract created during the Web3Chennai Build Onchain Apps Workshop.
+A small Solidity workshop project that demonstrates an ERC-20 token with a fixed initial supply and owner-only minting.
 
-## Contract Overview
+## Contract
 
-**Web3ChennaiToken** is an ERC20 token contract that demonstrates:
-- Basic token minting functionality
-- Standard ERC20 features (transfer, approve, etc.)
-- Owner-only minting permissions
+Source: [`contracts/Web3ChennaiToken.sol`](https://github.com/suresh294/build-onchain-apps-workshop/blob/main/contracts/Web3ChennaiToken.sol)
 
-## Features
+- **Name:** Build Onchain Apps Token
+- **Symbol:** BOA
+- **Solidity:** `^0.8.20`
+- **Standard:** OpenZeppelin ERC-20
+- **Initial supply:** 1,000,000 BOA tokens minted to the deployer
+- **Additional minting:** Only the owner can call `mint(address to, uint256 amount)`
 
-- `mint(address to, uint256 amount)` - Mint new tokens (Owner only)
-- `totalSupply()` - Get the total supply of tokens
-- `balanceOf(address account)` - Get the token balance of an account
+The `amount` passed to `mint` uses the token's smallest unit (18 decimals by default for ERC-20 tokens).
 
-## Tech Stack
+## Compile in Remix
 
-- Solidity ^0.8.20
-- OpenZeppelin Contracts
-- ERC20 Standard
+1. Open [Remix IDE](https://remix.ethereum.org/).
+2. Create `Web3ChennaiToken.sol` and paste the contract source.
+3. Select a Solidity compiler version compatible with `^0.8.20`.
+4. Compile the contract. Remix can resolve the OpenZeppelin imports when its dependency resolver is available.
+5. For practice, deploy only to Remix VM or a testnet wallet you control.
 
-## Deployment
+No verified deployed contract address is documented in this repository. Do not assume this source has been deployed, audited, or is suitable for production token issuance.
 
-Deploy using Hardhat, Foundry, or Remix IDE on any EVM-compatible network.
+## Safety Notes
 
-## Workshop Details
+- Owner-only minting means the token supply can increase after deployment.
+- Use a test environment while learning and never share wallet private keys.
+- Review the OpenZeppelin dependency and contract behavior before any real deployment.
 
-- **Organized by:** Web3Chennai
-- **Website:** [web3chennai.xyz](https://web3chennai.xyz)
-- **Twitter:** [@web3chennai](https://twitter.com/web3chennai)
+## Workshop
+
+Created as a learning artifact for the Web3Chennai Build Onchain Apps Workshop.
+
+- Website: [web3chennai.xyz](https://web3chennai.xyz)
+- Twitter/X: [@web3chennai](https://twitter.com/web3chennai)
 
 ## License
 
-MIT License
+MIT
